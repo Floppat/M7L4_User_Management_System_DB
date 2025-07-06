@@ -35,7 +35,7 @@ def display_users():
         cursor = conn.cursor()
         cursor.execute('SELECT username, email FROM users')
         for user in cursor.fetchall():
-            print(f"Логин: {user[0]}, Электронная почта: {user[1]}")
+            return(f"Логин: {user[0]}, Электронная почта: {user[1]}")
 
 
 def user_choice():
@@ -46,7 +46,7 @@ def user_choice():
 
 def main():
     create_db()
-    display_users()  # Показать список пользователей перед выбором действия
+    print(display_users())  # Показать список пользователей перед выбором действия
 
     choice = user_choice()
 
@@ -66,4 +66,4 @@ def main():
         print("Неверный ввод. Пожалуйста, введите 1 для авторизации или 2 для регистрации.")
 
 if __name__ == "__main__":
-    main()
+    print(authenticate_user("testuser","password123"))
